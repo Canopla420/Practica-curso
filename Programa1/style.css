@@ -1,0 +1,143 @@
+/* Estilo general para eliminar márgenes, paddings y usar el mismo modelo de caja en todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Contenedor principal: fondo con degradado vertical y mínimo alto igual al alto de la pantalla */
+.container {
+    min-height: 100vh;
+    /* Corregido: era min-width */
+    background: linear-gradient(200deg, #3b3ee3, #01ffea);
+    /* Corregido: linear-gradient en minúscula */
+    padding: 10px;
+}
+
+/* Tarjeta principal de la aplicación de tareas */
+.todo-app {
+    max-width: 545px;
+    background-color: #fff;
+    margin: 100px auto;
+    /* Centrado vertical con margen superior y centrado horizontal */
+    padding: 40px 30px 70px;
+    border-radius: 5px;
+}
+
+/* Título dentro de la tarjeta */
+.todo-app h2 {
+    color: #045610;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Imagen al lado del título */
+.todo-app h2 img {
+    width: 35px;
+    margin-left: 10px;
+}
+
+/* Sombra al pasar el mouse por la tarjeta */
+.todo-app:hover {
+    box-shadow: 1px 2px 2px 3px black;
+}
+
+/* Fila de entrada: input + botón */
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #efe2e2;
+    border-radius: 10px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+/* Campo de texto (input) para escribir la tarea */
+input {
+    flex: 1;
+    /* Toma el espacio restante */
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    /* Corregido: antes era font-weight: 14px */
+}
+
+/* Botón para agregar tarea */
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0a9c11;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón */
+button:hover {
+    background-color: #068051;
+}
+
+/* Lista de tareas (cada <li>) */
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    /* Espacio a la izquierda para el ícono */
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Círculo vacío a la izquierda de cada tarea (ícono de "no completado") */
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background: url(imagenes/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    left: 16px;
+}
+
+/* Estilo de una tarea marcada como completada */
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+/* Ícono de tarea completada (círculo con check) */
+ul li.checked::before {
+    color: #666;
+    background-image: url(imagenes/checked.png);
+}
+
+/* Botón "X" para eliminar tarea (ubicado a la derecha del <li>) */
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre el botón de eliminar */
+ul li span:hover {
+    background: #f3f3f3;
+}
